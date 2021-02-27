@@ -1,0 +1,22 @@
+{
+  "name": "memory_game_mio",
+  "version": "1.0.0",
+  "description": "memory game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jose-ph/Memory_game_mio.git"
+  },
+  "author": "Jose Basualdo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jose-ph/Memory_game_mio/issues"
+  },
+  "homepage": "https://github.com/Jose-ph/Memory_game_mio#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta2"
+  }
+}
