@@ -1,0 +1,52 @@
+.info{
+
+    margin: 3px;
+
+    border: 2px solid red;
+
+    background-color: royalblue;
+    
+}
+
+.cartas {
+
+    margin: 50px;
+    display: block;
+}
+
+
+.rojo{
+
+    background-color: red;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.negro {
+    background-color: black;
+}
+
+.amarillo{
+    background-color: yellow;
+}
+
+.verde{
+    background-color: green;
+}
+
+.negro {
+
+    background-color: black;
+}
+
+.celeste {
+
+    background-color: lightblue;
+}
+
+.carta{
+
+    display: none;
+}
