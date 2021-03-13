@@ -22,7 +22,7 @@ function asignarColorRandom (colores) {
   
     coloresRandom = colores.sort( () => .5 - Math.random() );
 
-   for(let i = 0 ; i <= cartas.length ; i++){
+   for(let i = 0 ; i < cartas.length ; i++){
 
        cartas[i].classList.add(coloresRandom[i]);
    }
