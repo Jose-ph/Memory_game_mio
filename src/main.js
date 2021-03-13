@@ -15,7 +15,7 @@ function prepararTablero (){
 
     ocultarFrente();
     asignarColorRandom(coloresDuplicados);
-    mostrarFrente();
+    manejarCartas();
     
 }
 
@@ -40,26 +40,46 @@ function ocultarFrente(){
     });
 }
 
-function mostrarFrente(){
+function manejarCartas(){
 //Esto usarlo para mostrar y ocultar las cartas al comparar.
     cartas.forEach(carta => {
 
-        carta.addEventListener('click',()=>{
+       // carta.addEventListener('click',()=>{
 
-            if (carta.classList.contains("dorso")) {
-                carta.classList.remove("dorso");
+            //if (carta.classList.contains("dorso")) {
+           //     carta.classList.remove("dorso");
             
-            }
+           // }
 
-            else if (!carta.classList.contains("dorso")){
+           // else if (!carta.classList.contains("dorso")){
 
-                carta.classList.add("dorso");
-            }
+           //     carta.classList.add("dorso");
+          //  }
 
-        });
+        //});
+        carta.addEventListener('click',girarCarta);
+
+
         
     });
 }
+
+function girarCarta(){
+
+    if (carta.classList.contains("dorso")) {
+        carta.classList.remove("dorso");
+    
+    }
+
+    else if (!carta.classList.contains("dorso")){
+
+        carta.classList.add("dorso");
+    }
+
+
+
+}
+
 
 prepararTablero();
 
