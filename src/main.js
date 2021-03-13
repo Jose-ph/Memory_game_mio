@@ -72,7 +72,8 @@ function manejarCartas(){
 
 function manejarJugadaUsuario (){
 
-        window.addEventListener('click', (event) => {
+    cartas.forEach(carta => {
+        carta.addEventListener('click', (event) => {
 
            
          
@@ -92,15 +93,20 @@ function manejarJugadaUsuario (){
             }
     
            
-    
-            
             console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
+            
+           
             
           });
         
+    });
+
+        
+        
     
 
-   
+          
+         
 
 
       
