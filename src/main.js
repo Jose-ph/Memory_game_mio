@@ -13,8 +13,10 @@ let coloresDuplicados = colores.concat(colores);
 
 function prepararTablero (){
 
-
+    ocultarFrente();
     asignarColorRandom(coloresDuplicados);
+    mostrarFrente();
+    
 }
 
 function asignarColorRandom (colores) {
@@ -28,6 +30,35 @@ function asignarColorRandom (colores) {
    }
   
 
+}
+
+function ocultarFrente(){
+
+    cartas.forEach(carta => {
+        carta.classList.add("dorso");
+        
+    });
+}
+
+function mostrarFrente(){
+//Esto usarlo para mostrar y ocultar las cartas al comparar.
+    cartas.forEach(carta => {
+
+        carta.addEventListener('click',()=>{
+
+            if (carta.classList.contains("dorso")) {
+                carta.classList.remove("dorso");
+            
+            }
+
+            else if (!carta.classList.contains("dorso")){
+
+                carta.classList.add("dorso");
+            }
+
+        });
+        
+    });
 }
 
 prepararTablero();

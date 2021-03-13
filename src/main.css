@@ -46,6 +46,11 @@
     background-color: lightblue;
 }
 
+.dorso {
+
+    background-color: gray;
+}
+
 .carta{
 
     display: none;
