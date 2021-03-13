@@ -10,6 +10,11 @@ let colores = ["rojo","azul","amarillo","verde","negro","celeste"];
 
 let coloresDuplicados = colores.concat(colores);
 
+let primeraCartaUsuario = null;
+let segundaCartaUsuario = null;
+
+const jugadaUsuario = [];
+
 
 function prepararTablero (){
 
@@ -67,19 +72,55 @@ function manejarCartas(){
 
 function manejarJugadaUsuario (){
 
-    window.addEventListener('click', (event) => {
+        window.addEventListener('click', (event) => {
          
-        let evento = event.target;
+            if(primeraCartaUsuario){
+    
+                primeraCartaUsuario = event.target;
+    
+                jugadaUsuario.push(primeraCartaUsuario);
+            }
+    
+            else if (!primeraCartaUsuario){
+    
+                 segundaCartaUsuario = event.target;
+    
+                
+                jugadaUsuario.push(segundaCartaUsuario);
+            }
+    
+            if(jugadaUsuario.length === 2){
 
-        console.log(evento)
-          
+                bloquerInputUsuario();
+            }
+    
+            
+            console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
+            
+          });
         
-      });
+    
 
+   
+
+
+      
+      
 
 
 }
 
+function bloquerInputUsuario(){
+
+    window.addEventListener('click', (event) => {
+         
+        console.log("No puedes elegir mas de 2 cartas por turno");
+        
+      });
+    
+
+
+}
 
 prepararTablero();
 
