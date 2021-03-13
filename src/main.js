@@ -73,15 +73,17 @@ function manejarCartas(){
 function manejarJugadaUsuario (){
 
         window.addEventListener('click', (event) => {
+
+           
          
-            if(primeraCartaUsuario){
+            if(primeraCartaUsuario && jugadaUsuario.length != 2){
     
                 primeraCartaUsuario = event.target;
     
                 jugadaUsuario.push(primeraCartaUsuario);
             }
     
-            else if (!primeraCartaUsuario){
+            else if (!primeraCartaUsuario && jugadaUsuario.length != 2){
     
                  segundaCartaUsuario = event.target;
     
@@ -89,10 +91,7 @@ function manejarJugadaUsuario (){
                 jugadaUsuario.push(segundaCartaUsuario);
             }
     
-            if(jugadaUsuario.length === 2){
-
-                bloquerInputUsuario();
-            }
+           
     
             
             console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
