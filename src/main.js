@@ -12,7 +12,7 @@ let coloresDuplicados = colores.concat(colores);
 
 let primeraCartaUsuario = null;
 let segundaCartaUsuario = null;
-let turnoJugador;
+let turnoJugador = true;
 
 const jugadaUsuario = [];
 
@@ -21,9 +21,15 @@ function prepararTablero (){
 
     ocultarFrente();
     asignarColorRandom(coloresDuplicados);
-    //manejarCartas();
-    manejarJugadaUsuario();
-   // manejarCartas();
+   manejarCartas(turnoJugador)
+
+   manejarJugadaUsuario();
+
+  
+   
+
+   //manejarCartas(turnoJugador);
+
     
 }
 
@@ -48,33 +54,12 @@ function ocultarFrente(){
     });
 }
 
-function manejarCartas(turnoJugador, jugadaUsuario){
+function manejarCartas(turnoJugador){
 //Esto usarlo para mostrar y ocultar las cartas al comparar.
 
-    if (turnoJugador === true && jugadaUsuario.length != 2){
+    if (turnoJugador === true){
 
-       // cartas.forEach(carta => {
-
-            //carta.addEventListener('click',()=>{
-     
-                 //if (carta.classList.contains("dorso")) {
-                   //  carta.classList.remove("dorso");
-                 
-                 //}
-     
-                 //else if (!carta.classList.contains("dorso")){
-     
-                    // carta.classList.add("dorso");
-                //}
-     
-             //});
-             
-     
-     
-             
-        // });
-
-        for( let i = 0 ; i< cartas.length; i++){
+        for( let i = 0 ; i < cartas.length; i++){
 
             cartas[i].addEventListener('click',() =>{
 
@@ -96,54 +81,155 @@ function manejarCartas(turnoJugador, jugadaUsuario){
             );
         }
 
+
+         }
+
+
+         else if(jugadaUsuario === false){
+
+            for(let i = 0 ; i< cartas.length; i ++){
+
+                cartas[i].removeEventListener('click',()=>{
+
+                    if (cartas[i].classList.contains("dorso")) {
+                        cartas[i].classList.remove("dorso");
+                    
+                    }
+        
+                    else if (!cartas[i].classList.contains("dorso")){
+        
+                        cartas[i].classList.add("dorso");
+                   }
+
+                    
+                    
+                });
+            }
+         }
+
+
+        //for( let i = 0 ; i < cartas.length; i++){
+
+           // cartas[i].addEventListener('click',() =>{
+
+                //if (cartas[i].classList.contains("dorso")) {
+                   //  cartas[i].classList.remove("dorso");
+                 
+                // }
+     
+                // else if (!cartas[i].classList.contains("dorso")){
+     
+                    // cartas[i].classList.add("dorso");
+               // }
+
+
+            //}
+            
+            
+            
+           // );
+       // }
+
     }
 
-    else console.log("Input Bloqueado");
+    
    
-}
+
 
 function manejarJugadaUsuario (){
 
-    turnoJugador = true;
-   // manejarCartas();
-
     
 
-    cartas.forEach(carta => {
 
-        carta.addEventListener('click', (event) => {
 
-            //
+    for(let i = 0; i< cartas.length; i++){
 
-            if(turnoJugador === true){
+        cartas[i].addEventListener('click',(event) =>{
 
-                if(primeraCartaUsuario && jugadaUsuario.length != 2){
-    
+            
+            
+
+                if(primeraCartaUsuario && jugadaUsuario.length !=2){
+
                     primeraCartaUsuario = event.target;
         
-                    jugadaUsuario.push(primeraCartaUsuario);
+                   jugadaUsuario.push(primeraCartaUsuario);
+
                 }
-        
+
                 else if (!primeraCartaUsuario && jugadaUsuario.length != 2){
         
                      segundaCartaUsuario = event.target;
-        
-                    
+         
+                     
                     jugadaUsuario.push(segundaCartaUsuario);
                 }
+            
+
+
+            console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
+
+            
+            
+            turnoJugador = false;
+
+               
+            manejarCartas(turnoJugador);
+
+        } );
+
+        
+        
+        
+    }
+    
+
+    
+
+   // cartas.forEach(carta => {
+
+       // carta.addEventListener('click', (event) => {
+
+            
+
+            //if(turnoJugador === true){
+
+               // if(primeraCartaUsuario && jugadaUsuario.length != 2){
+    
+                    //primeraCartaUsuario = event.target;
+        
+                   // jugadaUsuario.push(primeraCartaUsuario);
+             //   }
+        
+              //  else if (!primeraCartaUsuario && jugadaUsuario.length != 2){
+        
+                   //  segundaCartaUsuario = event.target;
+        
+                    
+                   // jugadaUsuario.push(segundaCartaUsuario);
+             //   }
         
                
-                console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
+              //  console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
+
+                //turnoJugador = false;
+
+               // setTimeout(() => {
+
+                  //  manejarCartas(turnoJugador,jugadaUsuario);
+                    
+               // }, 1000);
                 
+               
                 
               //  comprobarMismaCarta();
 
-            }
+          //  }
          
             
-          });
+         // });
         
-    });
+   // });
 
     
 
@@ -176,6 +262,18 @@ function comprobarMismaCarta (){
 
 
 
+}
+
+function bloquearInputUsuario (){
+
+    for(let i = 0; i< cartas.length; i++){
+
+
+        cartas[i].addEventListener('click',()=>{
+
+            console.log
+        })
+    }
 }
 
 prepararTablero();
