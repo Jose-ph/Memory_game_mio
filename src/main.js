@@ -21,8 +21,9 @@ function prepararTablero (){
 
     ocultarFrente();
     asignarColorRandom(coloresDuplicados);
-   // manejarCartas();
+    //manejarCartas();
     manejarJugadaUsuario();
+   // manejarCartas();
     
 }
 
@@ -47,31 +48,53 @@ function ocultarFrente(){
     });
 }
 
-function manejarCartas(){
+function manejarCartas(turnoJugador, jugadaUsuario){
 //Esto usarlo para mostrar y ocultar las cartas al comparar.
 
-    if (turnoJugador === true){
+    if (turnoJugador === true && jugadaUsuario.length != 2){
 
-        cartas.forEach(carta => {
+       // cartas.forEach(carta => {
 
-            carta.addEventListener('click',()=>{
+            //carta.addEventListener('click',()=>{
      
-                 if (carta.classList.contains("dorso")) {
-                     carta.classList.remove("dorso");
+                 //if (carta.classList.contains("dorso")) {
+                   //  carta.classList.remove("dorso");
+                 
+                 //}
+     
+                 //else if (!carta.classList.contains("dorso")){
+     
+                    // carta.classList.add("dorso");
+                //}
+     
+             //});
+             
+     
+     
+             
+        // });
+
+        for( let i = 0 ; i< cartas.length; i++){
+
+            cartas[i].addEventListener('click',() =>{
+
+                if (cartas[i].classList.contains("dorso")) {
+                     cartas[i].classList.remove("dorso");
                  
                  }
      
-                 else if (!carta.classList.contains("dorso")){
+                 else if (!cartas[i].classList.contains("dorso")){
      
-                     carta.classList.add("dorso");
+                     cartas[i].classList.add("dorso");
                 }
-     
-             });
-             
-     
-     
-             
-         });
+
+
+            }
+            
+            
+            
+            );
+        }
 
     }
 
@@ -82,6 +105,7 @@ function manejarCartas(){
 function manejarJugadaUsuario (){
 
     turnoJugador = true;
+   // manejarCartas();
 
     
 
@@ -89,7 +113,7 @@ function manejarJugadaUsuario (){
 
         carta.addEventListener('click', (event) => {
 
-            //manejarCartas();
+            //
 
             if(turnoJugador === true){
 
