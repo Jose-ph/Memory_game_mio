@@ -12,6 +12,7 @@ let coloresDuplicados = colores.concat(colores);
 
 let primeraCartaUsuario = null;
 let segundaCartaUsuario = null;
+let turnoJugador;
 
 const jugadaUsuario = [];
 
@@ -20,7 +21,7 @@ function prepararTablero (){
 
     ocultarFrente();
     asignarColorRandom(coloresDuplicados);
-    manejarCartas();
+   // manejarCartas();
     manejarJugadaUsuario();
     
 }
@@ -48,58 +49,79 @@ function ocultarFrente(){
 
 function manejarCartas(){
 //Esto usarlo para mostrar y ocultar las cartas al comparar.
-    cartas.forEach(carta => {
 
-       carta.addEventListener('click',()=>{
+    if (turnoJugador === true){
 
-            if (carta.classList.contains("dorso")) {
-                carta.classList.remove("dorso");
-            
-            }
+        cartas.forEach(carta => {
 
-            else if (!carta.classList.contains("dorso")){
+            carta.addEventListener('click',()=>{
+     
+                 if (carta.classList.contains("dorso")) {
+                     carta.classList.remove("dorso");
+                 
+                 }
+     
+                 else if (!carta.classList.contains("dorso")){
+     
+                     carta.classList.add("dorso");
+                }
+     
+             });
+             
+     
+     
+             
+         });
 
-                carta.classList.add("dorso");
-           }
+    }
 
-        });
-        
-
-
-        
-    });
+    else console.log("Input Bloqueado");
+   
 }
 
 function manejarJugadaUsuario (){
 
+    turnoJugador = true;
+
+    
+
     cartas.forEach(carta => {
+
         carta.addEventListener('click', (event) => {
 
-           
-         
-            if(primeraCartaUsuario && jugadaUsuario.length != 2){
+            //manejarCartas();
+
+            if(turnoJugador === true){
+
+                if(primeraCartaUsuario && jugadaUsuario.length != 2){
     
-                primeraCartaUsuario = event.target;
-    
-                jugadaUsuario.push(primeraCartaUsuario);
-            }
-    
-            else if (!primeraCartaUsuario && jugadaUsuario.length != 2){
-    
-                 segundaCartaUsuario = event.target;
-    
+                    primeraCartaUsuario = event.target;
+        
+                    jugadaUsuario.push(primeraCartaUsuario);
+                }
+        
+                else if (!primeraCartaUsuario && jugadaUsuario.length != 2){
+        
+                     segundaCartaUsuario = event.target;
+        
+                    
+                    jugadaUsuario.push(segundaCartaUsuario);
+                }
+        
+               
+                console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
                 
-                jugadaUsuario.push(segundaCartaUsuario);
+                
+              //  comprobarMismaCarta();
+
             }
-    
-           
-            console.log(jugadaUsuario[0],jugadaUsuario[1],jugadaUsuario[2]);
-            
-           
+         
             
           });
         
     });
+
+    
 
         
         
@@ -115,14 +137,19 @@ function manejarJugadaUsuario (){
 
 }
 
-function bloquerInputUsuario(){
+function comprobarMismaCarta (){
 
-    window.addEventListener('click', (event) => {
-         
-        console.log("No puedes elegir mas de 2 cartas por turno");
-        
-      });
-    
+
+    if ( jugadaUsuario[0] === jugadaUsuario[1]){
+
+        jugadaUsuario.pop();
+
+        console.log("Seleccionaste dos veces la misma carta");
+    }
+
+
+
+
 
 
 }
