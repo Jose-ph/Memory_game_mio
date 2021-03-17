@@ -1,37 +1,4 @@
 
-const tablero = document.querySelector("#tablero");
-
-const cartas = document.querySelectorAll(".carta");
-
-let colores = ["rojo","amarillo","verde","azul","violeta","gris"];
-
-let coloresDuplicados = colores.concat(colores);
-
-let cartaElegidaUsuario =[];
-
-
-
-
-ocultarFrenteCartas(cartas);
-
-asignarColorRandomCartas(cartas,coloresDuplicados);
-
-obtenerCartaUsuario();
-
-if (cartaElegidaUsuario.length === 2){
-
-    console.log("No podés elegir más cartas.");
-}
-    
-
-
-
-
-//obtenerCartaUsuario();
-//mostrarCarta();
-
-
-
 
 function asignarColorRandomCartas(cartas,colores){
 
@@ -95,6 +62,9 @@ function obtenerCartaUsuario (){
 
     let cartaElegida;
 
+   
+    
+
     tablero.onclick = function(e) {
 
          cartaElegida = e.target;
@@ -104,10 +74,57 @@ function obtenerCartaUsuario (){
         cartaElegidaUsuario.push(cartaElegida);
 
          mostrarCarta(cartaElegidaUsuario); 
-         
 
+         if (cartaElegidaUsuario.length === 2  ){
+
+            console.log("No podés elegir más cartas.");
+        
+        
+               tablero.onclick = function(){
+        
+                console.log("input bloqueado");
+               }
+           
+            }
+
+        }
+
+    
+       
+    
     }
 
-    
-    
-}
+
+
+const tablero = document.querySelector("#tablero");
+
+const cartas = document.querySelectorAll(".carta");
+
+let colores = ["rojo","amarillo","verde","azul","violeta","gris"];
+
+let coloresDuplicados = colores.concat(colores);
+
+let cartaElegidaUsuario =[];
+
+let comparando = false;
+
+
+
+
+ocultarFrenteCartas(cartas);
+
+asignarColorRandomCartas(cartas,coloresDuplicados);
+
+obtenerCartaUsuario();
+
+
+ 
+
+
+
+
+//obtenerCartaUsuario();
+//mostrarCarta();
+
+
+
