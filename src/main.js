@@ -7,23 +7,18 @@ let colores = ["rojo","amarillo","verde","azul","violeta","gris"];
 
 let coloresDuplicados = colores.concat(colores);
 
-asignarColorCartas(cartas,coloresDuplicados);
+asignarColorRandomCartas(cartas,coloresDuplicados);
 
 
-function asignarColorCartas(cartas,colores){
+function asignarColorRandomCartas(cartas,colores){
+
+    let coloresRandom = colores.sort( () => .5 - Math.random() );
 
     for(let i = 0; i < cartas.length ; i++){
 
-        cartas[i].classList.add(colores[i]);
-
-
-
-
-
-
+        cartas[i].classList.add(coloresRandom[i]);
 
     }
-
 
 
 }
