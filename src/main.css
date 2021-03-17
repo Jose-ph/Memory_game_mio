@@ -1,59 +1,28 @@
-.info{
 
-    margin: 3px;
-
-    border: 2px solid red;
-
-    background-color: royalblue;
-    
+.fondo {
+    background-color: black;
 }
 
-.cartas {
-
-    margin: 50px;
-    display: block;
-    cursor: pointer;
-}
-
-
-.rojo{
-
+.fondo2 {
     background-color: red;
 }
 
-.azul {
-    background-color: blue;
-}
 
-.negro {
-    background-color: black;
-}
-
-.amarillo{
-    background-color: yellow;
-}
-
-.verde{
-    background-color: green;
-}
-
-.negro {
-
-    background-color: black;
-}
-
-.celeste {
-
-    background-color: lightblue;
-}
-
-.dorso {
-
-    background-color: gray;
-}
-
-.carta{
-
-    display: none;
+.prueba{
+    height: 23vh;
     
+    margin-top: 3px;
+   
+
+}
+
+.columna {
+
+    margin-right: 3px;
+}
+
+.info {
+
+    height: 10vh;
+    background-color:   #e0d310  ;
 }
