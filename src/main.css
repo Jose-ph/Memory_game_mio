@@ -3,12 +3,9 @@
     background-color: black;
 }
 
-.fondo2 {
-    background-color: red;
-}
 
 
-.prueba{
+.fila-tablero{
     height: 23vh;
     
     margin-top: 3px;
@@ -25,4 +22,35 @@
 
     height: 10vh;
     background-color:   #e0d310  ;
+}
+
+
+.rojo {
+
+    background-color: red;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.negro{
+
+    background-color: black;
+
+
+}
+
+.verde {
+    background-color: green;
+}
+
+.amarillo{
+
+    background-color: yellow;
+}
+
+.violeta{
+
+    background-color: violet;
 }
