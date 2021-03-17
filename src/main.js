@@ -7,10 +7,27 @@ let colores = ["rojo","amarillo","verde","azul","violeta","gris"];
 
 let coloresDuplicados = colores.concat(colores);
 
+let cartaElegidaUsuario =[];
+
+
+
 
 ocultarFrenteCartas(cartas);
+
 asignarColorRandomCartas(cartas,coloresDuplicados);
+
 obtenerCartaUsuario();
+
+if (cartaElegidaUsuario.length === 2){
+
+    console.log("No podés elegir más cartas.");
+}
+    
+
+
+
+
+//obtenerCartaUsuario();
 //mostrarCarta();
 
 
@@ -38,45 +55,59 @@ function ocultarFrenteCartas (cartas){
 
 }
 
-function mostrarCarta (){
+function mostrarCarta (carta){
 
-   
-    for( let i = 0 ; i < cartas.length ; i++){
+    let cartaElegida = carta
 
-        cartas[i].addEventListener('click', (e)=>{
-
-            let cartaElegida = e.target;
-
-            let cartaDeEspaldas = cartaElegida.classList.contains("dorso");
-            let cartaDeFrente = !cartaElegida.classList.contains("dorso");
-
-            if (cartaDeEspaldas){
-
-                cartaElegida.classList.remove("dorso");
-            }
-
-            else if (cartaDeFrente){
-
-                cartaElegida.classList.add("dorso");
-            }
-            
     
-        });
+    
+    //let cartaDeFrente = !cartaElegida.classList.contains("dorso");
+
+
+    for( let i = 0 ; i< carta.length ; i++){
+
+        let cartaDeEspaldas = cartaElegida[i].classList.contains("dorso");
+
+        if (cartaDeEspaldas){
+
+            cartaElegida[i].classList.remove("dorso");
+        }
 
     }
+
+            
+
+            
+          // Esto usarlo al momento de comparar
+           // else if (cartaDeFrente){
+
+               // cartaElegida.classList.add("dorso");
+            //}
+            
+    
+        
+
+    
 
 }
 
 function obtenerCartaUsuario (){
 
+    let cartaElegida;
+
     tablero.onclick = function(e) {
 
-        const $cartaElegida = e.target;
-       
-        
+         cartaElegida = e.target;
 
+        console.log(cartaElegida);
+
+        cartaElegidaUsuario.push(cartaElegida);
+
+         mostrarCarta(cartaElegidaUsuario); 
+         
 
     }
+
     
-    return console.log($cartaElegida);
+    
 }
