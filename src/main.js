@@ -120,8 +120,8 @@ function obtenerCartaUsuario (){
        cartas[0].classList esto me devuelve algo que se llama
        DOMTokenList y como es parecido a un array hice esto 
        aunque hay que acordarse muchas cosas */
-
-        if ( jugada[0].classList[6] === jugada[1].classList[6]){
+        
+        if ( jugada[0].classList[6] === jugada[1].classList[6] && jugada[0].id != jugada[1].id){
 
             jugada[0].classList.add("iguales");
             jugada[1].classList.add("iguales");
