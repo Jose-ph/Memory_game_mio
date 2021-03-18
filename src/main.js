@@ -120,8 +120,11 @@ function obtenerCartaUsuario (){
        cartas[0].classList esto me devuelve algo que se llama
        DOMTokenList y como es parecido a un array hice esto 
        aunque hay que acordarse muchas cosas */
+        let mismoColor = jugada[0].classList[6] === jugada[1].classList[6];
+
+        let noEsMismaCarta = jugada[0].id != jugada[1].id;
         
-        if ( jugada[0].classList[6] === jugada[1].classList[6] && jugada[0].id != jugada[1].id){
+        if ( mismoColor && noEsMismaCarta){
 
             jugada[0].classList.add("iguales");
             jugada[1].classList.add("iguales");
