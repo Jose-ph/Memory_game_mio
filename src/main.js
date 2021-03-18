@@ -32,11 +32,6 @@ function mostrarCarta (carta){
 
     let cartaElegida = carta
 
-    
-    
-    //let cartaDeFrente = !cartaElegida.classList.contains("dorso");
-
-
     for( let i = 0 ; i< carta.length ; i++){
 
         let cartaDeEspaldas = cartaElegida[i].classList.contains("dorso");
@@ -46,21 +41,7 @@ function mostrarCarta (carta){
             cartaElegida[i].classList.remove("dorso");
         }
 
-    }
-
-            
-
-            
-          // Esto usarlo al momento de comparar
-           // else if (cartaDeFrente){
-
-               // cartaElegida.classList.add("dorso");
-            //}
-            
-    
-        
-
-    
+    }  
 
 }
 
@@ -68,11 +49,8 @@ function obtenerCartaUsuario (){
 
     let cartaElegida;
     
-
-   
-    
-
     tablero.onclick = function(e) {
+        
 
          cartaElegida = e.target;
 
@@ -82,29 +60,43 @@ function obtenerCartaUsuario (){
 
          mostrarCarta(cartaElegidaUsuario); 
 
-         if (cartaElegidaUsuario.length === 2  ){
 
-            console.log("No podés elegir más cartas.");
-        
-        
-               tablero.onclick = function(){
-        
-                console.log("input bloqueado");
+            if (cartaElegidaUsuario.length === 2  ){
 
-               }
+                console.log("No podés elegir más cartas.");
+            
+            
+                   tablero.onclick = function(){
+            
+                    console.log("input bloqueado");
+    
+                  }
+    
+                  setTimeout(() => {
+    
+                    console.log("comparando cartas");
 
-               setTimeout(() => {
+                    compararCartas(cartaElegidaUsuario);
 
-                console.log("comparando cartas");
-                compararCartas(cartaElegidaUsuario);
+                    cartaElegidaUsuario = [];
+
+                    if (cartaElegidaUsuario.length === 0){
+
+                        desbloquarInput();
+                        
+
+                    }
+
+                       
+                       
                 
-            }, 1000);
-           
-            }
+                   cartaElegidaUsuario = [];
+                    
+               }, 1000);
 
-           
+                }
 
-        }
+       }
 
     
        
@@ -112,7 +104,13 @@ function obtenerCartaUsuario (){
     }
 
 
+    function desbloquarInput(){
 
+       obtenerCartaUsuario();
+       
+    }
+
+   
     function compararCartas(jugada){
 
         //esto lo uso con las cartas
@@ -123,14 +121,21 @@ function obtenerCartaUsuario (){
         let mismoColor = jugada[0].classList[6] === jugada[1].classList[6];
 
         let noEsMismaCarta = jugada[0].id != jugada[1].id;
-        
+       
         if ( mismoColor && noEsMismaCarta){
 
             jugada[0].classList.add("iguales");
             jugada[1].classList.add("iguales");
+            console.log("son iguales !")
+            
         }
 
-        else ocultarFrenteCartas(jugada);
+        else {ocultarFrenteCartas(jugada);
+
+            console.log("Son diferentes !");
+
+        }
+
     }
 
 
@@ -146,23 +151,17 @@ let cartaElegidaUsuario =[];
 
 let comparando = false;
 
+function manejarJuego(){
 
+    asignarIdCartas(cartas);
 
-asignarIdCartas(cartas);
-ocultarFrenteCartas(cartas);
+    ocultarFrenteCartas(cartas);
 
-asignarColorRandomCartas(cartas,coloresDuplicados);
+    asignarColorRandomCartas(cartas,coloresDuplicados);
 
-obtenerCartaUsuario();
+    obtenerCartaUsuario();
+  
 
+}
 
- 
-
-
-
-
-//obtenerCartaUsuario();
-//mostrarCarta();
-
-
-
+ manejarJuego();
