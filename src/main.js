@@ -1,4 +1,10 @@
+function asignarIdCartas(cartas){
 
+    for(let i = 0 ; i < cartas.length ; i++){
+
+        cartas[i].id = "carta" + i;
+    }
+}
 
 function asignarColorRandomCartas(cartas,colores){
 
@@ -61,6 +67,7 @@ function mostrarCarta (carta){
 function obtenerCartaUsuario (){
 
     let cartaElegida;
+    
 
    
     
@@ -83,9 +90,19 @@ function obtenerCartaUsuario (){
                tablero.onclick = function(){
         
                 console.log("input bloqueado");
+
                }
+
+               setTimeout(() => {
+
+                console.log("comparando cartas");
+                compararCartas(cartaElegidaUsuario);
+                
+            }, 1000);
            
             }
+
+           
 
         }
 
@@ -94,6 +111,24 @@ function obtenerCartaUsuario (){
     
     }
 
+
+
+    function compararCartas(jugada){
+
+        //esto lo uso con las cartas
+       /*Entonces al poner por ejemplo
+       cartas[0].classList esto me devuelve algo que se llama
+       DOMTokenList y como es parecido a un array hice esto 
+       aunque hay que acordarse muchas cosas */
+
+        if ( jugada[0].classList[6] === jugada[1].classList[6]){
+
+            jugada[0].classList.add("iguales");
+            jugada[1].classList.add("iguales");
+        }
+
+        else ocultarFrenteCartas(jugada);
+    }
 
 
 const tablero = document.querySelector("#tablero");
@@ -110,7 +145,7 @@ let comparando = false;
 
 
 
-
+asignarIdCartas(cartas);
 ocultarFrenteCartas(cartas);
 
 asignarColorRandomCartas(cartas,coloresDuplicados);
