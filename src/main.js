@@ -151,6 +151,10 @@ let cartaElegidaUsuario =[];
 
 let comparando = false;
 
+let mensajeEstadoJuego = document.querySelector("#estado");
+
+
+
 function manejarJuego(){
 
     asignarIdCartas(cartas);
@@ -163,5 +167,5 @@ function manejarJuego(){
   
 
 }
-
+ mensajeEstadoJuego.innerHTML = "<h3>Inicia el Juego con START</h3>";
  manejarJuego();
