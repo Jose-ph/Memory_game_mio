@@ -46,6 +46,8 @@ function mostrarCarta (carta){
 }
 
 function obtenerCartaUsuario (){
+
+    
     
     let cartaElegida;
     
@@ -59,6 +61,8 @@ function obtenerCartaUsuario (){
         console.log(cartaElegida);
 
         cartaElegidaUsuario.push(cartaElegida);
+
+        deshabilitarCarta(cartaElegidaUsuario);
 
          mostrarCarta(cartaElegidaUsuario); 
 
@@ -157,6 +161,19 @@ function obtenerCartaUsuario (){
         }
 
     }
+
+
+ function deshabilitarCarta (carta){
+
+    
+
+        if (carta.classList.contains("iguales")){
+
+            alert("esta carta ya no está en juego");
+        }
+        
+    
+ }
 
 
 const tablero = document.querySelector("#tablero");
