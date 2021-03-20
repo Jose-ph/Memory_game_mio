@@ -46,10 +46,12 @@ function mostrarCarta (carta){
 }
 
 function obtenerCartaUsuario (){
-
+    
     let cartaElegida;
     
     tablero.onclick = function(e) {
+
+        
         
 
          cartaElegida = e.target;
@@ -63,18 +65,26 @@ function obtenerCartaUsuario (){
 
             if (cartaElegidaUsuario.length === 2  ){
 
-                console.log("No podés elegir más cartas.");
+                console.log("solo podes elegir 2 cartas por vez");
+                mensajeEstadoJuego.innerHTML = "<p>Solo podes elegir 2 cartas por vez</p>";
+
+                
             
             
                    tablero.onclick = function(){
             
                     console.log("input bloqueado");
+
+                   
     
                   }
     
                   setTimeout(() => {
     
                     console.log("comparando cartas");
+                    
+
+                   
 
                     compararCartas(cartaElegidaUsuario);
 
@@ -121,6 +131,10 @@ function obtenerCartaUsuario (){
         let mismoColor = jugada[0].classList[6] === jugada[1].classList[6];
 
         let noEsMismaCarta = jugada[0].id != jugada[1].id;
+
+        let esMismaCarta = jugada[0].id === jugada[1].id;
+
+       
        
         if ( mismoColor && noEsMismaCarta){
 
@@ -134,6 +148,12 @@ function obtenerCartaUsuario (){
 
             console.log("Son diferentes !");
 
+        }
+
+        if(esMismaCarta){
+
+            alert("No podes elegir la misma carta dos veces!");
+            alert("Si lo haces podrias dañar la continuidad del espacio tiempo");
         }
 
     }
@@ -157,6 +177,7 @@ let mensajeEstadoJuego = document.querySelector("#estado");
 
 function manejarJuego(){
 
+    
     asignarIdCartas(cartas);
 
     ocultarFrenteCartas(cartas);
@@ -167,5 +188,6 @@ function manejarJuego(){
   
 
 }
+
  mensajeEstadoJuego.innerHTML = "<h3>Inicia el Juego con START</h3>";
  manejarJuego();
