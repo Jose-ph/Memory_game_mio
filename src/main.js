@@ -46,23 +46,20 @@ function mostrarCarta (carta){
 }
 
 function obtenerCartaUsuario (){
-
-    
-    
+   
     let cartaElegida;
     
     tablero.onclick = function(e) {
-
-        
-        
 
          cartaElegida = e.target;
 
         console.log(cartaElegida);
 
+        comprobarCartaElegida(cartaElegida);
+
         cartaElegidaUsuario.push(cartaElegida);
 
-        deshabilitarCarta(cartaElegidaUsuario);
+        //deshabilitarCarta(cartaElegidaUsuario);
 
          mostrarCarta(cartaElegidaUsuario); 
 
@@ -163,16 +160,25 @@ function obtenerCartaUsuario (){
     }
 
 
- function deshabilitarCarta (carta){
+ function comprobarCartaElegida (carta){
 
-    
+    if(carta.classList.contains("iguales")){
 
-        if (carta.classList.contains("iguales")){
-
-            alert("esta carta ya no está en juego");
-        }
         
+
+        mostrarCarta(carta)
+        alert("esta carta ya no está disponible");
+        cartaElegidaUsuario.pop();
+
+        console.log(cartaElegidaUsuario);
+
+        
+    }
+
     
+
+
+
  }
 
 
