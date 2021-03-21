@@ -45,7 +45,7 @@ function mostrarCarta (carta){
 
 }
 
-function obtenerCartaUsuario (){
+function manejarJugada (){
    
     let cartaElegida;
     
@@ -71,28 +71,15 @@ function obtenerCartaUsuario (){
 
 
             if (cartaElegidaUsuario.length === 2  ){
-
-                console.log("solo podes elegir 2 cartas por vez");
-                mensajeEstadoJuego.innerHTML = "<p>Solo podes elegir 2 cartas por vez</p>";
-
-                
-            
-            
+           
                    tablero.onclick = function(){
             
                     console.log("input bloqueado");
 
-                   
-    
                   }
     
                   setTimeout(() => {
     
-                    console.log("comparando cartas");
-                    
-
-                   
-
                     compararCartas(cartaElegidaUsuario);
 
                     cartaElegidaUsuario = [];
@@ -101,12 +88,8 @@ function obtenerCartaUsuario (){
 
                         desbloquarInput();
                         
-
                     }
-
-                       
-                       
-                
+              
                    cartaElegidaUsuario = [];
                     
                }, 1000);
@@ -114,16 +97,13 @@ function obtenerCartaUsuario (){
                 }
 
        }
-
-    
-       
-    
+   
     }
 
 
     function desbloquarInput(){
 
-       obtenerCartaUsuario();
+       manejarJugada();
        
     }
 
@@ -171,7 +151,8 @@ function obtenerCartaUsuario (){
     if(carta.classList.contains("iguales")){
 
         mostrarCarta(carta)
-        alert("Esta carta ya no está disponible.Elige otra");
+        
+       alert("Esta carta ya no está disponible.Elige otra");
         
     }
 
@@ -183,6 +164,17 @@ function obtenerCartaUsuario (){
  }
 
 
+
+ function revisarFinalJuego (cartas){
+
+    for(let i = 0 ; i<cartas.length ; i++){
+
+        if(cartas[i].classList.contains("iguales")){
+
+
+        }
+    }
+ }
 const tablero = document.querySelector("#tablero");
 
 const cartas = document.querySelectorAll(".carta");
@@ -193,6 +185,8 @@ let coloresDuplicados = colores.concat(colores);
 
 let cartaElegidaUsuario =[];
 
+let cartasGanadas = [];
+
 let mensajeEstadoJuego = document.querySelector("#estado");
 
 const $botonStart = document.querySelector("#btn-start");
@@ -202,14 +196,15 @@ const $botonReset = document.querySelector("#btn-reset");
 
 function manejarJuego(){
 
-    
+    mensajeEstadoJuego.innerHTML = "<h3>Elige dos cartas !!</h3>";
+
     asignarIdCartas(cartas);
 
     ocultarFrenteCartas(cartas);
 
     asignarColorRandomCartas(cartas,coloresDuplicados);
 
-    obtenerCartaUsuario();
+    manejarJugada();
   
 
 }
