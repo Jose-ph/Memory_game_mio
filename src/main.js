@@ -98,7 +98,13 @@ function manejarJugada (){
 
        }
 
-        revisarFinalJuego(cartas);
+        revisarFinalJuego(cartasGanadas);
+
+        if(finDelJuego === true){
+
+           tablero.classList.add("borrar");
+
+        }
 
        
    
@@ -172,13 +178,14 @@ function manejarJugada (){
 
  function revisarFinalJuego (cartas){
 
-    if(cartasGanadas.length === 6){
+    if(cartas.length === 6){
 
         mensajeEstadoJuego.innerHTML = "<h3>Ganaste!!</h3>";
+        finDelJuego = true;
 
     }
 
-    
+    return finDelJuego;
  }
 const tablero = document.querySelector("#tablero");
 
@@ -191,6 +198,8 @@ let coloresDuplicados = colores.concat(colores);
 let cartaElegidaUsuario =[];
 
 let cartasGanadas = [];
+
+let finDelJuego = false;
 
 let mensajeEstadoJuego = document.querySelector("#estado");
 
