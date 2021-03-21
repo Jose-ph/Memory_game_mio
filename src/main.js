@@ -24,8 +24,6 @@ function ocultarFrenteCartas (cartas){
 
         cartas[i].classList.add("dorso");
     }
-
-
 }
 
 function mostrarCarta (carta){
@@ -103,6 +101,7 @@ function manejarJugada (){
         if(finDelJuego === true){
 
            tablero.classList.add("borrar");
+           $imagenGanarJuego.classList.remove("borrar");
 
         }
 
@@ -205,6 +204,7 @@ let mensajeEstadoJuego = document.querySelector("#estado");
 
 const $botonStart = document.querySelector("#btn-start");
 const $botonReset = document.querySelector("#btn-reset");
+const $imagenGanarJuego = document.querySelector("#img-ganar");
 
 
 
