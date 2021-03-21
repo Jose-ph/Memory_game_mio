@@ -97,6 +97,10 @@ function manejarJugada (){
                 }
 
        }
+
+        revisarFinalJuego(cartas);
+
+       
    
     }
 
@@ -128,6 +132,7 @@ function manejarJugada (){
             jugada[0].classList.add("iguales");
             jugada[1].classList.add("iguales");
             console.log("son iguales !")
+            cartasGanadas.push("iguales");
             
         }
 
@@ -167,13 +172,13 @@ function manejarJugada (){
 
  function revisarFinalJuego (cartas){
 
-    for(let i = 0 ; i<cartas.length ; i++){
+    if(cartasGanadas.length === 6){
 
-        if(cartas[i].classList.contains("iguales")){
+        mensajeEstadoJuego.innerHTML = "<h3>Ganaste!!</h3>";
 
-
-        }
     }
+
+    
  }
 const tablero = document.querySelector("#tablero");
 
