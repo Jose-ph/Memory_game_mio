@@ -177,6 +177,11 @@ function obtenerCartaUsuario (){
 
  }
 
+ function recargarJuego(){
+
+    location.reload();
+ }
+
 
 const tablero = document.querySelector("#tablero");
 
@@ -191,6 +196,7 @@ let cartaElegidaUsuario =[];
 let mensajeEstadoJuego = document.querySelector("#estado");
 
 const $botonStart = document.querySelector("#btn-start");
+const $botonReset = document.querySelector("#btn-reset");
 
 
 
@@ -209,4 +215,7 @@ function manejarJuego(){
 }
 
  mensajeEstadoJuego.innerHTML = "<h3>Inicia el Juego con START</h3>";
- manejarJuego();
+
+ $botonStart.onclick = manejarJuego;
+ $botonReset.onclick = recargarJuego;
+ //manejarJuego();
