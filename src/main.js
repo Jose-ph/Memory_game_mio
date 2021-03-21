@@ -55,13 +55,19 @@ function obtenerCartaUsuario (){
 
         console.log(cartaElegida);
 
-        comprobarCartaElegida(cartaElegida);
+      //  comprobarCartaElegida(cartaElegida);
 
         cartaElegidaUsuario.push(cartaElegida);
 
-        //deshabilitarCarta(cartaElegidaUsuario);
-
          mostrarCarta(cartaElegidaUsuario); 
+
+         if (cartaElegida.classList.contains("iguales")){
+
+            comprobarCartaElegida(cartaElegida);
+            cartaElegidaUsuario = [];
+            
+             
+         }
 
 
             if (cartaElegidaUsuario.length === 2  ){
@@ -164,20 +170,10 @@ function obtenerCartaUsuario (){
 
     if(carta.classList.contains("iguales")){
 
-        
-
         mostrarCarta(carta)
-        alert("esta carta ya no está disponible");
-        cartaElegidaUsuario.pop();
-
-        console.log(cartaElegidaUsuario);
-
+        alert("Esta carta ya no está disponible.Elige otra");
         
     }
-
-    
-
-
 
  }
 
@@ -192,9 +188,9 @@ let coloresDuplicados = colores.concat(colores);
 
 let cartaElegidaUsuario =[];
 
-let comparando = false;
-
 let mensajeEstadoJuego = document.querySelector("#estado");
+
+const $botonStart = document.querySelector("#btn-start");
 
 
 
