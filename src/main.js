@@ -154,7 +154,7 @@ function manejarJugada (){
         if(esMismaCarta){
 
             alert("No podes elegir la misma carta dos veces!");
-            alert("Si lo haces podrias dañar la continuidad del espacio tiempo");
+            
         }
 
     }
