@@ -28,19 +28,19 @@ function ocultarFrenteCartas (cartas){
 
 function mostrarCarta (carta){
 
-    let cartaElegida = carta
+   // let cartaElegida = carta
 
-    for( let i = 0 ; i< carta.length ; i++){
+   // for( let i = 0 ; i< carta.length ; i++){
 
-    let cartaDeEspaldas = cartaElegida[i].classList.contains("dorso");
+    //let cartaDeEspaldas = cartaElegida[i].classList.contains("dorso");
 
-        if (cartaDeEspaldas){
+       // if (cartaDeEspaldas){
 
-            cartaElegida[i].classList.remove("dorso");
-            
-        }
+           // cartaElegida[i].classList.remove("dorso");
+            carta.classList.remove("dorso");
+       // }
 
-   }  
+ //  }  
 
 }
 
@@ -58,7 +58,8 @@ function manejarJugada (){
 
         cartaElegidaUsuario.push(cartaElegida);
 
-         mostrarCarta(cartaElegidaUsuario); 
+        //mostrarCarta(cartaElegidaUsuario); 
+        mostrarCarta(cartaElegida);
 
          if (cartaElegida.classList.contains("iguales")){
 
