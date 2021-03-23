@@ -32,14 +32,15 @@ function mostrarCarta (carta){
 
     for( let i = 0 ; i< carta.length ; i++){
 
-        let cartaDeEspaldas = cartaElegida[i].classList.contains("dorso");
+    let cartaDeEspaldas = cartaElegida[i].classList.contains("dorso");
 
         if (cartaDeEspaldas){
 
             cartaElegida[i].classList.remove("dorso");
+            
         }
 
-    }  
+   }  
 
 }
 
