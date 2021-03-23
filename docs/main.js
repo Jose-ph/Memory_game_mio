@@ -166,7 +166,7 @@ function manejarJugada (){
 
     if(carta.classList.contains("iguales")){
 
-        mostrarCarta(carta)
+       // mostrarCarta(carta)
         
        alert("Esta carta ya no está disponible.Elige otra");
         
