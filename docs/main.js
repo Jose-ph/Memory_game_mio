@@ -28,20 +28,7 @@ function ocultarFrenteCartas (cartas){
 
 function mostrarCarta (carta){
 
-   // let cartaElegida = carta
-
-   // for( let i = 0 ; i< carta.length ; i++){
-
-    //let cartaDeEspaldas = cartaElegida[i].classList.contains("dorso");
-
-       // if (cartaDeEspaldas){
-
-           // cartaElegida[i].classList.remove("dorso");
-            carta.classList.remove("dorso");
-       // }
-
- //  }  
-
+    carta.classList.remove("dorso");
 }
 
 function manejarJugada (){
@@ -54,11 +41,8 @@ function manejarJugada (){
 
         console.log(cartaElegida);
 
-      //  comprobarCartaElegida(cartaElegida);
-
         cartaElegidaUsuario.push(cartaElegida);
 
-        //mostrarCarta(cartaElegidaUsuario); 
         mostrarCarta(cartaElegida);
 
          if (cartaElegida.classList.contains("iguales")){
@@ -136,7 +120,8 @@ function manejarJugada (){
 
         let esMismaCarta = jugada[0].id === jugada[1].id;
 
-       
+       //Agregar aca la condicion para cuando elijo una disponible y una
+       //no dipsonible
        
         if ( mismoColor && noEsMismaCarta){
 
@@ -191,7 +176,10 @@ function manejarJugada (){
     }
 
     return finDelJuego;
+
  }
+
+
 const tablero = document.querySelector("#tablero");
 
 const cartas = document.querySelectorAll(".carta");
