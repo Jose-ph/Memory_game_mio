@@ -49,7 +49,7 @@ function manejarJugada (){
 
             comprobarCartaElegida(cartaElegida);
 
-            
+            ocultarFrenteCartas(cartaElegidaUsuario);
 
             cartaElegidaUsuario = [];
             
