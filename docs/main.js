@@ -48,9 +48,12 @@ function manejarJugada (){
          if (cartaElegida.classList.contains("iguales")){
 
             comprobarCartaElegida(cartaElegida);
+
+            
+
             cartaElegidaUsuario = [];
             
-             
+            
          }
 
 
@@ -118,7 +121,7 @@ function manejarJugada (){
 
         let noEsMismaCarta = jugada[0].id != jugada[1].id;
 
-        let esMismaCarta = jugada[0].id === jugada[1].id;
+        let esMismaCarta = jugada[0].id === jugada[1].id; 
 
        //Agregar aca la condicion para cuando elijo una disponible y una
        //no dipsonible
@@ -132,7 +135,9 @@ function manejarJugada (){
             
         }
 
-        else {ocultarFrenteCartas(jugada);
+        else {
+            
+            ocultarFrenteCartas(jugada);
 
             console.log("Son diferentes !");
 
@@ -144,19 +149,21 @@ function manejarJugada (){
             
         }
 
+        
+      
+
     }
 
 
  function comprobarCartaElegida (carta){
+  
+    let cartaNoDisponible = carta.classList.contains("iguales");
 
-    if(carta.classList.contains("iguales")){
-
-       // mostrarCarta(carta)
-        
+    if(cartaNoDisponible){
+  
        alert("Esta carta ya no está disponible.Elige otra");
-        
+         
     }
-
  }
 
  function recargarJuego(){
