@@ -211,6 +211,8 @@ const $imagenGanarJuego = document.querySelector("#img-ganar");
 
 function manejarJuego(){
 
+    $botonStart.onclick = function(){};
+
     mensajeEstadoJuego.innerHTML = "<h3>Elige dos cartas !!</h3>";
 
     asignarIdCartas(cartas);
