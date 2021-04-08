@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Jose-ph/Memory_game_mio#readme",
   "dependencies": {
     "bootstrap": "^4.6.0"
+  },
+  "devDependencies": {
+    "cypress": "^7.0.1"
   }
 }
